@@ -1,0 +1,55 @@
+import bolichito.*
+import objetos.*
+describe "Bolichito: comportamiento brillante" {   
+    test "No es brillante si ambos objetos no son brillantes" {
+        bolichito.cambiarObjEnMostrador(pelota)
+        bolichito.cambiarObjEnVidriera(pelota)
+        assert.notThat(bolichito.esBrillante())
+    }
+    test "Es brillante si ambos objetos son brillantes" {
+        bolichito.cambiarObjEnMostrador(placa)
+        bolichito.cambiarObjEnVidriera(placa)
+        assert.that(bolichito.esBrillante())
+    }
+    test "No es brillante si el objeto de la vidriera no es brillante" {
+        bolichito.cambiarObjEnMostrador(placa)
+        bolichito.cambiarObjEnVidriera(pelota)
+        assert.notThat(bolichito.esBrillante())
+    }
+    test "No es brillante si el objeto del mostrador no es brillante" {
+        bolichito.cambiarObjEnMostrador(pelota)
+        bolichito.cambiarObjEnVidriera(placa)
+        assert.notThat(bolichito.esBrillante())
+    }
+}
+
+describe "Bolichito: comportamiento monocromatico" {
+    test "Es monocromatico si ambos objetos son del mismo color" {
+        bolichito.cambiarObjEnMostrador(pelota)
+        bolichito.cambiarObjEnVidriera(pelota)
+        assert.that(bolichito.esMonocromatico())
+    }
+    test "No es monocromatico si los objetos son de distinto color" {
+        bolichito.cambiarObjEnMostrador(pelota)
+        bolichito.cambiarObjEnVidriera(placa)
+        assert.notThat(bolichito.esMonocromatico())
+    }
+}
+
+describe "Bolichito: comportamiento equilibrado" {
+    test "Esta equilibrado si el objeto del mostrador pesa más" {
+        bolichito.cambiarObjEnMostrador(biblioteca)
+        bolichito.cambiarObjEnVidriera(pelota)
+        assert.that(bolichito.estaEquilibrado())
+    }
+    test "No esta equilibrado si el objeto de la vidriera pesa más" {
+        bolichito.cambiarObjEnMostrador(pelota)
+        bolichito.cambiarObjEnVidriera(biblioteca)
+        assert.notThat(bolichito.estaEquilibrado())
+    }
+    test "No esta equilibrado si los objetos pesan lo mismo" {
+        bolichito.cambiarObjEnMostrador(pelota)
+        bolichito.cambiarObjEnVidriera(pelota)
+        assert.notThat(bolichito.estaEquilibrado())
+    }
+}

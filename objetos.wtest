@@ -1,0 +1,26 @@
+import objetos.*
+
+describe "Tests de comportamientos de objetos" {
+    test "La remera roja de lino pesa 800 gramos" {
+        assert.equals(remera.pesoEnGramos(), 800)
+    }
+    test "La pelota parda de cuero pesa 1300 gramos" {
+        assert.equals(pelota.pesoEnGramos(), 1300)
+    }
+    test "La biblioteca verde de madera pesa 800 gramos" {
+        assert.equals(biblioteca.pesoEnGramos(), 8000)
+    }
+    test "Puedo modificar el peso en gramos del muñeco celeste de vidrio" {
+        munieco.cambiarPesoEnGramos(1000)
+        assert.equals(munieco.pesoEnGramos(), 1000)
+    }
+    test "Puedo modificar el color de la placa correctamente" {
+        placa.cambiarColor(celeste)
+        assert.equals(celeste, placa.color())
+    }
+    test "Puedo modicar el peso en gramos de la placa correctamente" {
+        placa.cambiarPesoEnGramos(100)
+        assert.equals(100, placa.pesoEnGramos())
+    }
+
+}

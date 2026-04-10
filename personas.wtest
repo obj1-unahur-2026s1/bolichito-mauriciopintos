@@ -1,0 +1,32 @@
+import personas.*
+import objetos.*
+
+
+describe "Test de gustos de las personas" {
+    
+    test "A Rosa le gusta las cosas de 2 kilos" {
+        assert.that(rosa.leGusta(remera))
+    }
+    test "A Estefania le gustan las cosas de colores fuertes" {
+        assert.that(estefania.leGusta(remera))
+    }
+
+    test "A Luisa le gustan las cosas que sean de un material que brilla" {
+        assert.that(luisa.leGusta(munieco))
+    }
+    
+    test "A Juan le gustan las cosas que no son de un color fuerte" {
+        assert.that(juan.leGusta(pelota))
+    }
+
+    test "A Juan le gustan las cosas que pesan entre 1200 y 1800 gramos" {
+        placa.cambiarPesoEnGramos(1300)
+        assert.that(juan.leGusta(placa))
+    }
+
+    test "A Juan NO le gustan las cosas de color fuerte y que esten fuera del rango de 1200 y 1800 gramos" {
+        placa.cambiarPesoEnGramos(1000)
+        assert.notThat(juan.leGusta(placa))
+    }
+
+}
